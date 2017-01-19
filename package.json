@@ -1,0 +1,48 @@
+{
+  "name": "front-kickstart",
+  "author": "dev361",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "Front assets management tools",
+  "main": "index.js",
+  "homepage": "https://github.com/dev361/front-kickstart#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev361/front-kickstart.git"
+  },
+  "keywords": [
+    "front",
+    "kickstart",
+    "js",
+    "sass",
+    "gulp"
+  ],
+  "bugs": {
+    "url": "https://github.com/dev361/front-kickstart/issues"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "help": "gulp",
+    "watch": "gulp watch",
+    "live": "gulp live",
+    "build": "gulp build",
+    "build:prod": "NODE_ENV=production gulp build:prod"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "^1.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-include": "^2.3.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.8"
+  }
+}
