@@ -1,12 +1,12 @@
 module.exports = function(plugins, config) {
-    if(config.bs){
+    if(typeof config.bs !== 'undefined'){
         plugins.browserSync.init({
-            baseDir: "./",
+            files: config.bs.files,
             port: config.bs.portNumber,
             proxy: config.bs.routing,
-            reloadOnRestart : true
+            reloadOnRestart : true,
         });
     } else {
-        console.log(plugins.util.colors.red('routing + portNumber not defined in config.js, no browser reload'));
+        console.log(plugins.util.colors.red('* Missing parameters for BrowserSync in config.js, no browser reload, sorry *'));
     }
 };

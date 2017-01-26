@@ -5,7 +5,7 @@ module.exports = function(plugins, config) {
         this[key] = plugins[key];
     }
 
-    config.copy.forEach(function(mapping){
+    config.img.forEach(function(mapping){
         gulp.src(mapping.src)
             .pipe(gulp.dest(mapping.dest));
     });
