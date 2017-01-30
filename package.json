@@ -1,13 +1,13 @@
 {
-  "name": "front-kickstart",
+  "name": "dev361-front-builder",
   "author": "dev361",
   "license": "ISC",
   "version": "1.0.3",
   "description": "Front assets management tools",
-  "homepage": "https://github.com/dev361/front-kickstart#readme",
+  "homepage": "https://github.com/dev361/dev-front-builder",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dev361/front-kickstart.git"
+    "url": "git+https://github.com/dev361/dev361-front-builder.git"
   },
   "keywords": [
     "front",
@@ -17,7 +17,7 @@
     "gulp"
   ],
   "bugs": {
-    "url": "https://github.com/dev361/front-kickstart/issues"
+    "url": "https://github.com/dev361/dev-front-builder/issues"
   },
   "dependencies": {
     "browser-sync": "^2.16.0",
