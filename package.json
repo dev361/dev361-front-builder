@@ -3,7 +3,7 @@
   "author": "dev361",
   "license": "ISC",
   "version": "1.0.3",
-  "description": "Front assets management tools",
+  "description": "Front assets build tool",
   "homepage": "https://github.com/dev361/dev-front-builder",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "front",
-    "kickstart",
+    "build",
     "js",
     "sass",
     "gulp"
@@ -22,6 +22,7 @@
   "dependencies": {
     "browser-sync": "^2.16.0",
     "del": "^2.2.2",
+    "findup-sync": "^0.4.3",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",
     "gulp-concat": "^2.6.0",
@@ -35,6 +36,6 @@
     "yargs": "^6.6.0"
   },
   "bin": {
-    "fks": "./bin/front-kickstart.js"
+    "dfb": "./bin/dev361-front-builder.js"
   }
 }
