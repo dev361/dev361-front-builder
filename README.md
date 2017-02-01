@@ -19,11 +19,11 @@ Grab or create the package.json at project root :
     "npm-modernizr": "^2.8.3"
   },
   "scripts": {
-    "dfb" : "./node_modules/.bin/dfb",
-    "dfb build" : "./node_modules/.bin/dfb build",
-    "dfb build:prod" : "./node_modules/.bin/dfb build:prod",
-    "dfb watch" : "./node_modules/.bin/dfb watch",
-    "dfb live" : "./node_modules/.bin/dfb live"
+    "dfb" : "node_modules/.bin/dfb help",
+    "dfb:build" : "./node_modules/.bin/dfb build",
+    "dfb:build:prod" : "./node_modules/.bin/dfb build:prod",
+    "dfb:watch" : "./node_modules/.bin/dfb watch",
+    "dfb:live" : "./node_modules/.bin/dfb live"
   }
 }
 ```
@@ -129,22 +129,22 @@ $ npm run dfb
 ```
 #### build
 ```
-$ npm run dfb build
+$ npm run dfb:build
 ```
 launch **clean**, **js dev**, **sass dev**, **copy**, **img**
 #### build:prod
 ```
-$ npm run dfb build:prod
+$ npm run dfb:build:prod
 ```
 launch **clean**, **js prod**, **sass prod**, **copy**, **img**
 #### watch
 ```
-$ npm run dfb watch
+$ npm run dfb:watch
 ```
 launch **build**, **watch** and automatically rebuild modified files 
 #### live
 ```
-$ npm run dfb live
+$ npm run dfb:live
 ```
 launch **watch** and **server** (reload browser on file modifications - need extra config)
 
