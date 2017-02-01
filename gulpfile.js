@@ -36,5 +36,3 @@ plugins.gulp.task('live', ['server', 'watch']);
 plugins.gulp.task('build', ['clean', 'copy', 'img', 'sass', 'js']);
 
 plugins.gulp.task('build:prod', ['clean', 'copy', 'img', 'sass', 'js']);
-    
-

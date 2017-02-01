@@ -17,7 +17,7 @@
     "gulp"
   ],
   "bugs": {
-    "url": "https://github.com/dev361/dev-front-builder/issues"
+    "url": "https://github.com/dev361/dev361-front-builder/issues"
   },
   "dependencies": {
     "browser-sync": "^2.16.0",
