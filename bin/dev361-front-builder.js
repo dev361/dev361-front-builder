@@ -7,7 +7,7 @@ var path = require('path');
 var gulpExecPath = path.join(__dirname, '../node_modules/.bin/');
 var cwd = path.join(__dirname, '../');
 
-var argv = yargs.usage("$0 command")
+var argv = yargs
     .command("build", "build everything for dev, no minimizing", function (yargs) {
         spawn(
             path.join(gulpExecPath, "gulp"),
@@ -36,7 +36,7 @@ var argv = yargs.usage("$0 command")
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
     })
-    .demandCommand(1, "Simply type 'dfb build' or whatever task you want to launch)\n ")
+    .demandCommand(1, "Simply type 'dfb build' or whatever task you want to launch\n ")
     .help("h", "Display command list")
     .alias("h", "help")
     .argv
