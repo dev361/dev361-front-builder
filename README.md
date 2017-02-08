@@ -5,7 +5,7 @@ Dev361-Front-Builder, or DFB, is a simple Gulp wrapper used to build assets with
        
 ### Installation
 
-Grab or create the package.json at project root :
+Create the package.json at project root :
 ```
 {
   "name": "projectname",
@@ -39,33 +39,29 @@ $ npm install
 
 ### Configuration
 
-Put your project's assets path in dfb.config.js which contains one big config object :
+Create a **dfb.config.js** file at project root, put your project's assets path in it like so :
 ```
-var ROOT= __dirname+'/';
-var srcPath= ROOT+'assets/';
-var destPath= ROOT+'build/';
-
 var config = {
     frontBuilder : {
         js: [
-            {src: srcPath+'js/vendors.js', dest: destPath+'js/vendors.js'},
-            {src: [srcPath+'js/scripts/script1.js', srcPath+'js/scripts/script2.js'], dest: destPath+'js/scripts.js' }
+            {src: 'path/to/jsSourceFile.js', dest: 'path/to/jsDestinationFile.js'},
+            {src: ['path/to/otherJsSourceFile1.js', 'path/to/otherJsSourceFile2.js'], dest: 'path/to/otherJsDestinationFile.js' }
         ],
         css: [
-            {src: srcPath+'scss/main.scss', dest: destPath+'css/main.css'}
+            {src: 'path/to/sassSourceFile.scss', dest: 'path/to/compiledCssFile.css'}
         ],
         copy: [
-            {src: srcPath + 'fonts/**/*', dest: destPath + 'fonts/'}
+            {src: 'path/to/directoryToCopy/**/*', dest: 'path/to/destinationDirectory/'}
         ],
         img: [
-            {src: srcPath + 'img/**/*', dest: destPath + 'img/'}
+            {src: 'path/to/imagesDirectoryToCopy/**/*', dest: 'path/to/imagesDestinationDirectory/'}
         ],
         cleanBeforeBuild: [
-            {destroy: destPath}
+            {destroy: 'path/to/directoryToDestroy'}
         ],
         watch: [
-            {filesToWatch: srcPath+'scss/**/*.scss', task: ['sass']},
-            {filesToWatch: srcPath+'js/scripts/*.js', task: ['js']}
+            {filesToWatch: 'path/to/sassFiles/**/*.scss', task: ['sass']},
+            {filesToWatch: 'path/to/jsFiles/**/*.js', task: ['js']}
         ]
     }
 }
@@ -94,8 +90,7 @@ You've been warned.
  
 ## Special extra DevFrontConfig
 
-You can also define some extra private settings, copy **dfb.env.js.dist** and rename it : **dfb.env.js**  
-File will not be committed so you can have your own personal settings in here.  
+Create a **dfb.env.js**  file at project root.  
 Basically this file will be used to run BrowserSync, but you can also override global config if needed (why on earth would you want to do that? i don't know, but anyway, it will work).
 
 This file contains another config object :
@@ -106,17 +101,17 @@ var env = {
      /* watch css and js files, if you wish to watch other type of files, add it to the 'files' key
      */
     bs: {
-        routing: "www.xvallot.front-kickstart.dev/",
-        portNumber: "8787",  // pick one between 8181 and 8989
+        routing: "www.url-of-your-project.dev",
+        portNumber: "2020"
         //files: [basePath+'**!/!*.php', basePath+'**!/!*.html']
     }
     /* and you can do that, too (js will override the js key in dfb.config.js) :
     , js: [
-        {src: 'myPersonalPath', dest: 'myPersonalPath' }
+        {src: 'my/personal/src/path', dest: 'my/personal/dest/path' }
     ]*/
 }
 ```
-If you want to run BrowserSync, simply put in your project's url, and a port between 8181 and 8989.  
+If you want to run BrowserSync, simply put in your project's url (ex _www.url-of-your-project.dev_) and a port of your choice (ex _2020_), then open _www.url-of-your-project.dev:2020_.  
 Browser will now be reloaded on js and scss modification.  
 Add path files if you want to reload on php/html/whatever modification.
 
@@ -162,80 +157,3 @@ launch **watch** and **server** (reload browser on file modifications - need ext
 * **watch task** : watch files modifications 
 * **server** : launch BrowserSync to reload pages, need extra config (in dfb.env.js)
 
-
-### Recommanded assets structure
-
-```
-assets/
-┃ ┣ js/                                # Layout global includes
-┃ ┃   ┣ vendors.js                     # Vendors inclusion, entry point for the js task 
-┃ ┃   ┣ scripts.js                     # Personal scripts inclusion, entry point for the js task 
-┃ ┃   ┗scripts/                        # Your personal scripts
-┃ ┃     ┣ script1.js
-┃ ┃     ┗ script2.js
-┃ ┃   ┗ vendors/                       # Vendors configuration scripts 
-┃ ┃      ┗ bootstrap.js                (override vendors scripts, for example bootstrap.js is an override of 
-┃ ┃                                      ./node_modules/bootstrap-sass/assets/javascripts/bootstrap-sprockets.js) 
-┃ ┃
-┃ ┣ fonts/                             # Fonts
-┃ ┃   ┣ roboto/                        # If local fonts, better to keep inside font-name with font-weight-sub-folders to avoid a long file list of different types
-┃ ┃   ┃ ┣ roboto_condensed/
-┃ ┃   ┃ ┗ roboto_bold/
-┃ ┃   ┣ font-1/
-┃ ┃   ┗ font-2/
-┃ ┃
-┃ ┣ img/
-┃ ┃   ┣backgrounds/
-┃ ┃   ┣icons/
-┃ ┃   ┣page-1/
-┃ ┃   ┣page-2/
-┃ ┃   ┣page-3/
-┃ ┃   ┣user/
-┃ ┃   ┗quiz/
-┃ ┃
-┃ ┣ scss/
-┃ ┃   ┃
-
-┃ ┣ scss/
-┃ ┃   ┣  main.scss                     # File imports everything needed, main entry point for sass task
-┃ ┃   ┃
-┃ ┃   ┣pages/                          # Project pages, a single .scss file per page
-┃ ┃   ┃  ┣ _page-1.scss
-┃ ┃   ┃  ┗ _page-2.scss
-┃ ┃   ┃
-┃ ┃   ┣fonts/
-┃ ┃   ┃  ┗ _fonts.scss
-┃ ┃   ┃
-┃ ┃   ┣offline/                        # Sign in and sign up with other pages related to offline mode - to be related to /elements/_forms.scss
-┃ ┃   ┃  ┣ _sign-in.scss
-┃ ┃   ┃  ┗ _sign-up.scss
-┃ ┃   ┃
-┃ ┃   ┣layout/
-┃ ┃   ┃  ┣ _layout.scss                # @imports here
-┃ ┃   ┃  ┣ _header.scss
-┃ ┃   ┃  ┣ _footer.scss
-┃ ┃   ┃  ┗composition/                 # If any Sub-element, Ex:  _header.scss @import '_navbar-menu.scss'
-┃ ┃   ┃      ┗_navbar-menu.scss
-┃ ┃   ┃
-┃ ┃   ┣elements/                       # Any block of element partially used all over the project
-┃ ┃   ┃  ┣ _elements.scss              # @imports here
-┃ ┃   ┃  ┣ _buttons.scss
-┃ ┃   ┃  ┣ _forms.scss
-┃ ┃   ┃  ┗ _lists.scss
-┃ ┃   ┃
-┃ ┃   ┗utilities/
-┃ ┃   ┃  ┗ _mixins.scss
-┃ ┃   ┃  ┗ _variables.scss
-┃ ┃   ┃
-┃ ┃   ┗helpers/
-┃ ┃   ┃  ┗ _helpers.scss               # Useful classes (Optional)
-┃ ┃   ┃
-┃ ┃   ┗responsive/
-           ┗ _responsive.scss          # Responsive media queries (Optional)
-┃ ┃   ┣vendors/                        # One folder per vendor
-┃ ┃   ┃  ┣bootstrap/
-┃ ┃   ┃  ┃  ┗ _bootstrap_custom_config.css    # Override Bootstrap config
-┃ ┃   ┃  ┃  ┗ _bootstrap_custom_variables.css # Override Bootstrap variables
-┃ ┃   ┃
-
-```
