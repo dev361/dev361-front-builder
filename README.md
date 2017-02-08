@@ -3,21 +3,15 @@ Dev361 Front-End Assets Builder
 
 Dev361-Front-Builder, or DFB, is a simple Gulp wrapper used to build assets with a few basic tasks and paths configuration.
        
-### Installation
+## Installation
 
-Create the package.json at project root :
+```
+$ npm install --save dev361-front-builder
+```
+
+And add these scripts to your package.json :
 ```
 {
-  "name": "projectname",
-  "author": "dev361",
-  "license": "ISC",
-  "version": "1.0.0",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "dev361-front-builder": "1.0.3",
-    "jquery": "^3.1.1",
-    "npm-modernizr": "^2.8.3"
-  },
   "scripts": {
     "dfb" : "node_modules/.bin/dfb help",
     "dfb:build" : "./node_modules/.bin/dfb build",
@@ -27,17 +21,9 @@ Create the package.json at project root :
   }
 }
 ```
-This will install **Dev361 Front Builder**, **Bootstrap 3**, **Jquery 3**, and **Modernizr 2**. 
 
-The only required dependency is **dev361-front-builder**, feel free to add or remove  dependencies, or change their versions as needed.
 
-To install, type
-
-```
-$ npm install
-```
-
-### Configuration
+## Configuration
 
 Create a **dfb.config.js** file at project root, put your project's assets path in it like so :
 ```
@@ -115,35 +101,35 @@ If you want to run BrowserSync, simply put in your project's url (ex _www.url-of
 Browser will now be reloaded on js and scss modification.  
 Add path files if you want to reload on php/html/whatever modification.
 
-### Use DFB
+## Use DFB
 Main commands here, tasks details explained below
 
-#### general help
+### general help
 ```
 $ npm run dfb
 ```
-#### build
+### build
 ```
 $ npm run dfb:build
 ```
 launch **clean**, **js dev**, **sass dev**, **copy**, **img**
-#### build:prod
+### build:prod
 ```
 $ npm run dfb:build:prod
 ```
 launch **clean**, **js prod**, **sass prod**, **copy**, **img**
-#### watch
+### watch
 ```
 $ npm run dfb:watch
 ```
 launch **build**, **watch** and automatically rebuild modified files 
-#### live
+### live
 ```
 $ npm run dfb:live
 ```
 launch **watch** and **server** (reload browser on file modifications - need extra config)
 
-#### Tasks details
+### Tasks details
 
 * **js task** : 
 	* **DEV** : concatenate, generate sourcemaps, stream result to BrowserSync
