@@ -10,28 +10,28 @@ var cwd = path.join(__dirname, '../');
 var argv = yargs
     .command("build", "build everything for dev, no minimizing", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            path.join(gulpExecPath, "gulp.cmd"),
             ['build', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
     })
     .command("build:prod", "build task, but minimized", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            path.join(gulpExecPath, "gulp.cmd"),
             ['build:prod', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'prod'}, stdio: 'inherit' }
         );
     })
     .command("watch", "build task, and automatically rebuild modified files", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            path.join(gulpExecPath, "gulp.cmd"),
             ['watch', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
     })
     .command("live", "watch task, plus automatically reload browser", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            path.join(gulpExecPath, "gulp.cmd"),
             ['live', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
