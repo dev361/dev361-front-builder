@@ -4,34 +4,40 @@
 var yargs = require("yargs");
 var spawn = require('child_process').spawn;
 var path = require('path');
-var gulpExecPath = path.join(__dirname, '../node_modules/.bin/');
 var cwd = path.join(__dirname, '../');
+var isWin = /^win/.test(process.platform);
+
+if (isWin) {
+  var gulpExecPath = path.join(__dirname, '../../.bin/gulp.cmd');
+} else {
+  var gulpExecPath = path.join(__dirname, '../../.bin/gulp');
+}
 
 var argv = yargs
     .command("build", "build everything for dev, no minimizing", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            gulpExecPath,
             ['build', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
     })
     .command("build:prod", "build task, but minimized", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            gulpExecPath,
             ['build:prod', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'prod'}, stdio: 'inherit' }
         );
     })
     .command("watch", "build task, and automatically rebuild modified files", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            gulpExecPath,
             ['watch', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
     })
     .command("live", "watch task, plus automatically reload browser", function (yargs) {
         spawn(
-            path.join(gulpExecPath, "gulp"),
+            gulpExecPath,
             ['live', '--cwd', cwd, '--color', 'always'],
             { env: {NODE_ENV: 'dev'}, stdio: 'inherit' }
         );
