@@ -4,12 +4,18 @@ Dev361 Front-End Assets Builder
 Dev361-Front-Builder, or DFB, is a simple Gulp wrapper used to build assets with a few basic tasks and paths configuration.
        
 ## Installation
-
+Create a minimal **package.json** at project root :
+```
+npm init
+```
+Install dev361-front-builder :
 ```
 $ npm install --save dev361-front-builder
 ```
 
-And add these scripts to your package.json :
+## Configuration
+
+Add these scripts to package.json :
 ```
 {
   "scripts": {
@@ -21,9 +27,6 @@ And add these scripts to your package.json :
   }
 }
 ```
-
-
-## Configuration
 
 Create a **dfb.config.js** file at project root, put your project's assets path in it like so :
 ```
